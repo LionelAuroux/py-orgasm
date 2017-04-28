@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import sys
+import elsaCore
+import argparse
+
+if __name__ == "__main__":
+    print("Elsa")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("exe")
+    args = parser.parse_args()
+
+    exe = elsaCore.Exe()
+    if not exe.load_elf(args.exe):
+        print("Chiotte")
+        sys.exit(42)
+    print(vars(exe))
